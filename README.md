@@ -6,7 +6,7 @@ Best practice is to create a Bookmark and put code inside.
 <b>HOW TO DO THIS</b>
 1. Open your browser.
 2. Right-click on the bookmarks bar and select "Add page...".
-3. Enter the following URL in the URL field: <i>javascript:(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/Im-notank/Tribal-wars-auto-mint@main/mint.js';document.body.appendChild(s);})();</i>
+3. Enter the following URL in the URL field: <i>javascript:(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/Im-notank/Tribal-wars-auto-mint@latest/mint.js';document.body.appendChild(s);})();</i>
 4. Name the bookmarklet (e.g., "Auto Mint Script").
 5. Click "Save" or "Add" to create the bookmarklet.
 6. Open the "snob screen" in Tribal Wars.
