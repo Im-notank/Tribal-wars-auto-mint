@@ -1,4 +1,6 @@
 (function() {
+    console.log("Script started.");
+
     function executeScript() {
         console.log("Executing script...");
 
@@ -51,16 +53,18 @@
         console.log("Starting interval with duration:", interval, "seconds");
         executeScript();
         window.coinMintInterval = setInterval(executeScript, interval * 1000);
-        var now = new Date();
-        var endTimeObj = new Date(now.getFullYear(), now.getMonth(), now.getDate(), endTime.getHours(), endTime.getMinutes(), endTime.getSeconds());
-        console.log("Script will end at:", endTimeObj);
-        var timeRemaining = endTimeObj.getTime() - now.getTime();
-        window.coinMintTimeout = setTimeout(stopInterval, timeRemaining);
+
+        if (endTime && endTime !== "") {
+            var endTimeObj = new Date(endTime);
+            console.log("Script will end at:", endTimeObj);
+            var now = new Date();
+            var timeRemaining = endTimeObj.getTime() - now.getTime();
+            window.coinMintTimeout = setTimeout(stopInterval, timeRemaining);
+        }
     }
 
     function stopInterval() {
         clearInterval(window.coinMintInterval);
-        clearTimeout(window.coinMintTimeout);
         console.log("Script execution stopped.");
     }
 
@@ -68,22 +72,8 @@
     var intervalInput = prompt("Version: " + version + "\n\nZa tento script platila Padreho mamka\n\nZadajte počet sekúnd medzi razeniami:");
     var intervalDuration = parseInt(intervalInput, 10);
     if (!isNaN(intervalDuration) && intervalDuration > 0) {
-        var endTimeInput = prompt("Zadajte čas ukončenia skriptu vo formáte 'HH:MM:SS':");
-        var splitTime = endTimeInput.split(':');
-        if (splitTime.length === 3) {
-            var hours = parseInt(splitTime[0], 10);
-            var minutes = parseInt(splitTime[1], 10);
-            var seconds = parseInt(splitTime[2], 10);
-            if (!isNaN(hours) && !isNaN(minutes) && !isNaN(seconds) && hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60 && seconds >= 0 && seconds < 60) {
-                var endTime = new Date();
-                endTime.setHours(hours, minutes, seconds);
-                startInterval(intervalDuration, endTime);
-            } else {
-                console.error("Invalid end time. Script aborted.");
-            }
-        } else {
-            console.error("Invalid end time format. Script aborted.");
-        }
+        var endTimeInput = prompt("Zadajte čas ukončenia skriptu vo formáte 'HH:MM:SS': (Ak chcete spustiť skript nekonečne, nechajte prázdne)");
+        startInterval(intervalDuration, endTimeInput);
     } else {
         console.error("Invalid interval duration. Script aborted.");
     }
