@@ -15,6 +15,6 @@ Best practice is to create a Bookmark and put code inside.
 It has to be run from Snob screen
 
 <b>TO DO IN THE FUTURE</b>
-Captcha solver
-Total minted coins counter
-Refresh page properly
+1. Captcha solver
+2. Total minted coins counter
+3. Refresh page properly
