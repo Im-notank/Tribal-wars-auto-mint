@@ -13,3 +13,8 @@ Best practice is to create a Bookmark and put code inside.
 7. Click the bookmarklet you just created.
 
 It has to be run from Snob screen
+
+<b>TO DO IN THE FUTURE</b>
+Captcha solver
+Total minted coins counter
+Refresh page properly
