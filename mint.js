@@ -1,6 +1,4 @@
-(function() {
-    console.log("Script started.");
-
+javascript:(function(){
     function executeScript() {
         console.log("Executing script...");
 
@@ -12,6 +10,9 @@
             console.log("Extracted value: ", numericValue);
 
             if (!isNaN(numericValue)) {
+                // Ensure at least 1 coin is minted
+                numericValue = Math.max(numericValue, 1);
+
                 // Check if the input element with id 'coin_mint_count' is available
                 var coinCountInput = document.getElementById('coin_mint_count');
                 if (coinCountInput) {
